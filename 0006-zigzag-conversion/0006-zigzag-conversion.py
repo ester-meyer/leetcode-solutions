@@ -7,15 +7,15 @@ class Solution(object):
         """
         if numRows==1:
             return s
-        new_s = ""
+        new_s = []
         for i in range(numRows):
             x = i
             jump = (numRows-i-1)*2
             if i == numRows-1:
                 jump = (numRows-1)*2
             while x<len(s):
-                new_s+=s[x]
+                new_s.append(s[x])
                 x+=jump
                 if i != 0 and i != numRows-1:
                     jump = (numRows-1)*2 - jump
-        return new_s
+        return ''.join(new_s)
