@@ -1,13 +1,17 @@
 class Solution {
 public:
     int reverse(int x) {
-        long newX = 0;
+        int newX = 0;
         while(x){
+            if (newX > 2147483647 / 10 ||
+                (newX == 2147483647 / 10 && x%10 > 7))
+                return 0;
+            if (newX < -2147483647 / 10 ||
+                (newX == -2147483647 / 10 && x%10 < -8))
+                return 0;
             newX = newX * 10 + x%10;
             x /= 10;
         }
-        if (newX > INT_MAX || newX < INT_MIN)
-            return 0;
         return newX;
     }
 };
